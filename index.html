@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script> window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>::-webkit-scrollbar { display: none;}</style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#2563EB',
+                        'primary-dark': '#1D4ED8',
+                        'success': '#10B981',
+                        'warning': '#F59E0B',
+                        'danger': '#EF4444',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter bg-gray-50">
+    <!-- Header Navigation -->
+    <header id="header" class="bg-white border-b border-gray-200 fixed w-full top-0 z-50">
+        <div class="flex items-center justify-between px-6 py-4">
+            <div class="flex items-center space-x-8">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                        <i class="fa-solid fa-cube text-white text-sm"></i>
+                    </div>
+                    <span class="text-xl font-bold text-gray-900">ShipFlow</span>
+                </div>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#" class="bg-primary text-white px-4 py-2 rounded-lg font-medium">Order Management</a>
+                    <a href="#" class="text-gray-600 hover:text-gray-900 px-4 py-2 rounded-lg font-medium">Settings</a>
+                    <a href="#" class="text-gray-600 hover:text-gray-900 px-4 py-2 rounded-lg font-medium">Reports</a>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <input type="text" placeholder="Search orders..." class="bg-gray-100 border-0 rounded-lg pl-10 pr-4 py-2 w-64 focus:outline-none focus:ring-2 focus:ring-primary">
+                    <i class="fa-solid fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                </div>
+                <button class="relative p-2 text-gray-600 hover:text-gray-900">
+                    <i class="fa-regular fa-bell text-lg"></i>
+                    <span class="absolute -top-1 -right-1 bg-danger text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span>
+                </button>
+                <div class="flex items-center space-x-3">
+                    <img src="https://leanlivingjourney.com/wp-content/uploads/2025/10/images-6.jpeg" alt="User" class="w-8 h-8 rounded-full">
+                    <span class="text-sm font-medium text-gray-900">Sarah Chen</span>
+                    <i class="fa-solid fa-chevron-down text-gray-400 text-xs"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex pt-16">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="w-64 bg-white border-r border-gray-200 fixed h-full overflow-y-auto">
+            <div class="p-6">
+                <div class="mb-8">
+                    <h2 class="text-lg font-semibold text-gray-900 mb-4">Dashboard</h2>
+                    <div class="space-y-2">
+                        <a href="#" class="flex items-center space-x-3 text-gray-600 hover:text-primary hover:bg-blue-50 px-3 py-2 rounded-lg">
+                            <i class="fa-solid fa-home w-5"></i>
+                            <span>Overview</span>
+                        </a>
+                        <a href="#" class="flex items-center space-x-3 text-gray-600 hover:text-primary hover:bg-blue-50 px-3 py-2 rounded-lg">
+                            <i class="fa-solid fa-box w-5"></i>
+                            <span>Orders</span>
+                        </a>
+                        <a href="#" class="flex items-center space-x-3 text-gray-600 hover:text-primary hover:bg-blue-50 px-3 py-2 rounded-lg">
+                            <i class="fa-solid fa-truck w-5"></i>
+                            <span>Shipments</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <h3 class="text-sm font-medium text-gray-900 uppercase tracking-wide mb-3">Account Settings</h3>
+                    <div class="space-y-2">
+                        <a href="#account-settings" class="flex items-center space-x-3 text-primary bg-blue-50 px-3 py-2 rounded-lg">
+                            <i class="fa-solid fa-user w-5"></i>
+                            <span>Account Settings</span>
+                        </a>
+                        <a href="#payment-settings" class="flex items-center space-x-3 text-gray-600 hover:text-primary hover:bg-blue-50 px-3 py-2 rounded-lg">
+                            <i class="fa-solid fa-credit-card w-5"></i>
+                            <span>Payment Settings</span>
+                        </a>
+                        <a href="#data-connection" class="flex items-center space-x-3 text-gray-600 hover:text-primary hover:bg-blue-50 px-3 py-2 rounded-lg">
+                            <i class="fa-solid fa-database w-5"></i>
+                            <span>Data Connection</span>
+                        </a>
+                        <a href="#address-settings" class="flex items-center space-x-3 text-gray-600 hover:text-primary hover:bg-blue-50 px-3 py-2 rounded-lg">
+                            <i class="fa-solid fa-map-marker-alt w-5"></i>
+                            <span>Address Settings</span>
+                        </a>
+                        <a href="#optional-settings" class="flex items-center space-x-3 text-gray-600 hover:text-primary hover:bg-blue-50 px-3 py-2 rounded-lg">
+                            <i class="fa-solid fa-cog w-5"></i>
+                            <span>Optional Settings</span>
+                        </a>
+                        <a href="#analytics" class="flex items-center space-x-3 text-gray-600 hover:text-primary hover:bg-blue-50 px-3 py-2 rounded-lg">
+                            <i class="fa-solid fa-chart-line w-5"></i>
+                            <span>Analytics</span>
+                        </a>
+                        <a href="#reports" class="flex items-center space-x-3 text-gray-600 hover:text-primary hover:bg-blue-50 px-3 py-2 rounded-lg">
+                            <i class="fa-solid fa-file-alt w-5"></i>
+                            <span>Reports</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-primary to-primary-dark rounded-lg p-4 text-white">
+                    <h4 class="font-medium mb-2">Upgrade to Pro</h4>
+                    <p class="text-sm text-blue-100 mb-3">Unlock advanced features and unlimited orders</p>
+                    <button class="bg-white text-primary px-4 py-2 rounded-lg text-sm font-medium w-full">Upgrade Now</button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="ml-64 flex-1 p-8">
+            <!-- Order Management Steps -->
+            <section id="order-workflow" class="mb-8">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h1 class="text-2xl font-bold text-gray-900">Order Management</h1>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-sm text-gray-500">Last updated: 2 minutes ago</span>
+                            <button class="text-gray-400 hover:text-gray-600">
+                                <i class="fa-solid fa-refresh"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center space-x-4 mb-8">
+                        <div class="flex items-center space-x-3 bg-success text-white px-4 py-2 rounded-lg">
+                            <div class="w-6 h-6 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                                <i class="fa-solid fa-check text-sm"></i>
+                            </div>
+                            <span class="font-medium">1. Confirm Orders</span>
+                        </div>
+                        <div class="w-8 h-0.5 bg-gray-300"></div>
+                        <div class="flex items-center space-x-3 bg-primary text-white px-4 py-2 rounded-lg">
+                            <div class="w-6 h-6 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                                <span class="text-sm font-bold">2</span>
+                            </div>
+                            <span class="font-medium">Pack Cartons</span>
+                        </div>
+                        <div class="w-8 h-0.5 bg-gray-300"></div>
+                        <div class="flex items-center space-x-3 text-gray-500 px-4 py-2 rounded-lg border border-gray-200">
+                            <div class="w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center">
+                                <span class="text-sm font-bold">3</span>
+                            </div>
+                            <span class="font-medium">Generate Labels</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <div class="lg:col-span-2">
+                            <div class="bg-gray-50 rounded-lg p-4 mb-4">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h3 class="font-medium text-gray-900">Shipping Origin</h3>
+                                    <button class="text-primary hover:text-primary-dark text-sm">Change</button>
+                                </div>
+                                <select class="w-full bg-white border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary">
+                                    <option>Warehouse A - Los Angeles, CA</option>
+                                    <option>Warehouse B - New York, NY</option>
+                                    <option>Warehouse C - Chicago, IL</option>
+                                </select>
+                            </div>
+
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 rounded-lg p-4">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <h4 class="font-medium text-gray-900">New York, NY (3 orders)</h4>
+                                        <button class="text-primary hover:text-primary-dark">
+                                            <i class="fa-solid fa-chevron-down"></i>
+                                        </button>
+                                    </div>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Quantity</label>
+                                            <input type="number" value="1" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Size & Weight</label>
+                                            <select class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary">
+                                                <option>Medium (10x8x6 in, 2 lbs)</option>
+                                                <option>Small (8x6x4 in, 1 lb)</option>
+                                                <option>Large (12x10x8 in, 5 lbs)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="mt-4">
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Items to Pack</label>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center space-x-3 p-2 bg-white rounded border">
+                                                <input type="checkbox" checked class="text-primary focus:ring-primary">
+                                                <span class="text-sm">Wireless Headphones (SKU: WH-001)</span>
+                                                <span class="text-xs text-gray-500 ml-auto">Qty: 2</span>
+                                            </div>
+                                            <div class="flex items-center space-x-3 p-2 bg-white rounded border">
+                                                <input type="checkbox" checked class="text-primary focus:ring-primary">
+                                                <span class="text-sm">Phone Case (SKU: PC-123)</span>
+                                                <span class="text-xs text-gray-500 ml-auto">Qty: 1</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between mt-4">
+                                        <div class="flex items-center space-x-2">
+                                            <input type="checkbox" class="text-primary focus:ring-primary">
+                                            <label class="text-sm text-gray-700">Pack on Pallet</label>
+                                        </div>
+                                        <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark">Create Carton</button>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gray-50 rounded-lg p-4">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <h4 class="font-medium text-gray-900">Miami, FL (2 orders)</h4>
+                                        <button class="text-primary hover:text-primary-dark">
+                                            <i class="fa-solid fa-chevron-down"></i>
+                                        </button>
+                                    </div>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Quantity</label>
+                                            <input type="number" value="1" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Size & Weight</label>
+                                            <select class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary">
+                                                <option>Small (8x6x4 in, 1 lb)</option>
+                                                <option>Medium (10x8x6 in, 2 lbs)</option>
+                                                <option>Large (12x10x8 in, 5 lbs)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="mt-4">
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Items to Pack</label>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center space-x-3 p-2 bg-white rounded border">
+                                                <input type="checkbox" checked class="text-primary focus:ring-primary">
+                                                <span class="text-sm">Bluetooth Speaker (SKU: BS-456)</span>
+                                                <span class="text-xs text-gray-500 ml-auto">Qty: 1</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between mt-4">
+                                        <div class="flex items-center space-x-2">
+                                            <input type="checkbox" class="text-primary focus:ring-primary">
+                                            <label class="text-sm text-gray-700">Pack on Pallet</label>
+                                        </div>
+                                        <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark">Create Carton</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="bg-white border border-gray-200 rounded-lg p-4">
+                                <h3 class="font-medium text-gray-900 mb-4">Order Summary</h3>
+                                <div class="space-y-3">
+                                    <div class="flex justify-between text-sm">
+                                        <span class="text-gray-600">Total Orders</span>
+                                        <span class="font-medium">5</span>
+                                    </div>
+                                    <div class="flex justify-between text-sm">
+                                        <span class="text-gray-600">Destinations</span>
+                                        <span class="font-medium">2</span>
+                                    </div>
+                                    <div class="flex justify-between text-sm">
+                                        <span class="text-gray-600">Total Items</span>
+                                        <span class="font-medium">8</span>
+                                    </div>
+                                    <hr>
+                                    <div class="flex justify-between text-sm">
+                                        <span class="text-gray-600">Estimated Weight</span>
+                                        <span class="font-medium">3.2 lbs</span>
+                                    </div>
+                                    <div class="flex justify-between text-sm">
+                                        <span class="text-gray-600">Shipping Cost</span>
+                                        <span class="font-medium text-success">$24.50</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Packed Cartons Section -->
+            <section id="packed-cartons" class="mb-8">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-semibold text-gray-900">Packed Cartons</h2>
+                        <div class="flex items-center space-x-3">
+                            <button class="text-gray-500 hover:text-gray-700">
+                                <i class="fa-solid fa-filter"></i>
+                            </button>
+                            <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark">Generate Labels</button>
+                        </div>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="border-b border-gray-200">
+                                    <th class="text-left py-3 px-4 font-medium text-gray-700">Carton ID</th>
+                                    <th class="text-left py-3 px-4 font-medium text-gray-700">Destination</th>
+                                    <th class="text-left py-3 px-4 font-medium text-gray-700">Dimensions</th>
+                                    <th class="text-left py-3 px-4 font-medium text-gray-700">Weight</th>
+                                    <th class="text-left py-3 px-4 font-medium text-gray-700">Items</th>
+                                    <th class="text-left py-3 px-4 font-medium text-gray-700">Status</th>
+                                    <th class="text-left py-3 px-4 font-medium text-gray-700">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                    <td class="py-4 px-4">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-10 h-10 bg-primary bg-opacity-10 rounded-lg flex items-center justify-center">
+                                                <i class="fa-solid fa-box text-primary"></i>
+                                            </div>
+                                            <span class="font-medium text-gray-900">CTN-001</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-4 px-4 text-gray-700">New York, NY</td>
+                                    <td class="py-4 px-4 text-gray-700">10×8×6 in</td>
+                                    <td class="py-4 px-4 text-gray-700">2.1 lbs</td>
+                                    <td class="py-4 px-4 text-gray-700">3 items</td>
+                                    <td class="py-4 px-4">
+                                        <span class="bg-success bg-opacity-10 text-success px-2 py-1 rounded-full text-xs font-medium">Ready</span>
+                                    </td>
+                                    <td class="py-4 px-4">
+                                        <div class="flex items-center space-x-2">
+                                            <button class="text-primary hover:text-primary-dark">
+                                                <i class="fa-solid fa-edit"></i>
+                                            </button>
+                                            <button class="text-gray-400 hover:text-danger">
+                                                <i class="fa-solid fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                    <td class="py-4 px-4">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-10 h-10 bg-primary bg-opacity-10 rounded-lg flex items-center justify-center">
+                                                <i class="fa-solid fa-box text-primary"></i>
+                                            </div>
+                                            <span class="font-medium text-gray-900">CTN-002</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-4 px-4 text-gray-700">Miami, FL</td>
+                                    <td class="py-4 px-4 text-gray-700">8×6×4 in</td>
+                                    <td class="py-4 px-4 text-gray-700">1.1 lbs</td>
+                                    <td class="py-4 px-4 text-gray-700">1 item</td>
+                                    <td class="py-4 px-4">
+                                        <span class="bg-warning bg-opacity-10 text-warning px-2 py-1 rounded-full text-xs font-medium">Pending</span>
+                                    </td>
+                                    <td class="py-4 px-4">
+                                        <div class="flex items-center space-x-2">
+                                            <button class="text-primary hover:text-primary-dark">
+                                                <i class="fa-solid fa-edit"></i>
+                                            </button>
+                                            <button class="text-gray-400 hover:text-danger">
+                                                <i class="fa-solid fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Account Settings Section -->
+            <section id="account-settings" class="mb-8">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-semibold text-gray-900">Account Settings</h2>
+                        <button class="text-primary hover:text-primary-dark">
+                            <i class="fa-solid fa-edit mr-2"></i>Edit Profile
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <div class="mb-6">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Company Name</label>
+                                <input type="text" value="ShipFlow Logistics" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Contact Email</label>
+                                <input type="email" value="admin@shipflow.com" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                                <input type="tel" value="+1 (555) 123-4567" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Time Zone</label>
+                                <select class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
+                                    <option>Pacific Standard Time (PST)</option>
+                                    <option>Eastern Standard Time (EST)</option>
+                                    <option>Central Standard Time (CST)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="mb-6">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Company Logo</label>
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center">
+                                        <i class="fa-solid fa-cube text-white text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <button class="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200">Upload New Logo</button>
+                                        <p class="text-xs text-gray-500 mt-1">Recommended: 200x200px, PNG or JPG</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Business Address</label>
+                                <textarea rows="4" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Enter your business address">123 Logistics Way
+Los Angeles, CA 90210
+United States</textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-gray-200 pt-6">
+                        <div class="flex justify-end space-x-3">
+                            <button class="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">Cancel</button>
+                            <button class="px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark">Save Changes</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Payment Settings Section -->
+            <section id="payment-settings" class="mb-8">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-semibold text-gray-900">Payment Settings</h2>
+                        <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark">
+                            <i class="fa-solid fa-plus mr-2"></i>Add Payment Method
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900 mb-4">Wallet Balance</h3>
+                            <div class="bg-gradient-to-r from-primary to-primary-dark rounded-lg p-6 text-white mb-6">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="text-blue-100 text-sm">Available Balance</p>
+                                        <p class="text-2xl font-bold">$1,247.50</p>
+                                    </div>
+                                    <i class="fa-solid fa-wallet text-3xl text-blue-200"></i>
+                                </div>
+                                <button class="bg-white bg-opacity-20 text-white px-4 py-2 rounded-lg mt-4 hover:bg-opacity-30">
+                                    Add Funds
+                                </button>
+                            </div>
+
+                            <h3 class="text-lg font-medium text-gray-900 mb-4">Subscription Plan</h3>
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <div class="flex items-center justify-between mb-3">
+                                    <div>
+                                        <h4 class="font-medium text-gray-900">Professional Plan</h4>
+                                        <p class="text-sm text-gray-600">$49.99/month</p>
+                                    </div>
+                                    <span class="bg-success bg-opacity-10 text-success px-2 py-1 rounded-full text-xs font-medium">Active</span>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-3">Next billing: January 15, 2025</p>
+                                <div class="flex space-x-2">
+                                    <button class="text-primary hover:text-primary-dark text-sm">Upgrade Plan</button>
+                                    <span class="text-gray-300">|</span>
+                                    <button class="text-gray-500 hover:text-gray-700 text-sm">Cancel Subscription</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900 mb-4">Payment Methods</h3>
+                            <div class="space-y-4">
+                                <div class="border border-gray-200 rounded-lg p-4">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center space-x-3">
+                                            <i class="fa-brands fa-cc-visa text-2xl text-blue-600"></i>
+                                            <div>
+                                                <p class="font-medium text-gray-900">•••• •••• •••• 4532</p>
+                                                <p class="text-sm text-gray-600">Expires 12/26</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <span class="bg-primary bg-opacity-10 text-primary px-2 py-1 rounded-full text-xs font-medium">Primary</span>
+                                            <button class="text-gray-400 hover:text-danger">
+                                                <i class="fa-solid fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="border border-gray-200 rounded-lg p-4">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center space-x-3">
+                                            <i class="fa-brands fa-cc-mastercard text-2xl text-red-600"></i>
+                                            <div>
+                                                <p class="font-medium text-gray-900">•••• •••• •••• 8901</p>
+                                                <p class="text-sm text-gray-600">Expires 08/27</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <button class="text-primary hover:text-primary-dark text-sm">Set as Primary</button>
+                                            <button class="text-gray-400 hover:text-danger">
+                                                <i class="fa-solid fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Data Connection Section -->
+            <section id="data-connection" class="mb-8">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-semibold text-gray-900">Data Connection</h2>
+                        <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark">
+                            <i class="fa-solid fa-plus mr-2"></i>Add Integration
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <div class="border border-gray-200 rounded-lg p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                                        <i class="fa-brands fa-shopify text-orange-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-medium text-gray-900">Shopify</h3>
+                                        <p class="text-sm text-gray-600">E-commerce platform</p>
+                                    </div>
+                                </div>
+                                <span class="bg-success bg-opacity-10 text-success px-2 py-1 rounded-full text-xs font-medium">Connected</span>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-4">Last sync: 5 minutes ago</p>
+                            <div class="flex space-x-2">
+                                <button class="text-primary hover:text-primary-dark text-sm">Configure</button>
+                                <span class="text-gray-300">|</span>
+                                <button class="text-gray-500 hover:text-gray-700 text-sm">View Logs</button>
+                                <span class="text-gray-300">|</span>
+                                <button class="text-danger hover:text-red-700 text-sm">Disconnect</button>
+                            </div>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-lg p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                                        <i class="fa-brands fa-amazon text-blue-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-medium text-gray-900">Amazon FBA</h3>
+                                        <p class="text-sm text-gray-600">Fulfillment service</p>
+                                    </div>
+                                </div>
+                                <span class="bg-success bg-opacity-10 text-success px-2 py-1 rounded-full text-xs font-medium">Connected</span>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-4">Last sync: 12 minutes ago</p>
+                            <div class="flex space-x-2">
+                                <button class="text-primary hover:text-primary-dark text-sm">Configure</button>
+                                <span class="text-gray-300">|</span>
+                                <button class="text-gray-500 hover:text-gray-700 text-sm">View Logs</button>
+                                <span class="text-gray-300">|</span>
+                                <button class="text-danger hover:text-red-700 text-sm">Disconnect</button>
+                            </div>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-lg p-6 opacity-60">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                                        <i class="fa-brands fa-square text-green-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-medium text-gray-900">Square</h3>
+                                        <p class="text-sm text-gray-600">Point of sale</p>
+                                    </div>
+                                </div>
+                                <button class="bg-primary text-white px-3 py-1 rounded text-xs">Connect</button>
+                            </div>
+                            <p class="text-sm text-gray-600">Sync your Square orders and inventory</p>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-lg p-6 opacity-60">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                                        <i class="fa-brands fa-woocommerce text-purple-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-medium text-gray-900">WooCommerce</h3>
+                                        <p class="text-sm text-gray-600">WordPress e-commerce</p>
+                                    </div>
+                                </div>
+                                <button class="bg-primary text-white px-3 py-1 rounded text-xs">Connect</button>
+                            </div>
+                            <p class="text-sm text-gray-600">Connect your WooCommerce store</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Address Settings Section -->
+            <section id="address-settings" class="mb-8">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-semibold text-gray-900">Address Settings</h2>
+                        <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark">
+                            <i class="fa-solid fa-plus mr-2"></i>Add Address
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900 mb-4">Warehouse Locations</h3>
+                            <div class="space-y-4">
+                                <div class="border border-gray-200 rounded-lg p-4">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <div>
+                                            <h4 class="font-medium text-gray-900">Warehouse A</h4>
+                                            <p class="text-sm text-gray-600">Primary fulfillment center</p>
+                                        </div>
+                                        <span class="bg-primary bg-opacity-10 text-primary px-2 py-1 rounded-full text-xs font-medium">Primary</span>
+                                    </div>
+                                    <div class="text-sm text-gray-600">
+                                        <p>123 Logistics Way</p>
+                                        <p>Los Angeles, CA 90210</p>
+                                        <p>United States</p>
+                                    </div>
+                                    <div class="flex space-x-2 mt-3">
+                                        <button class="text-primary hover:text-primary-dark text-sm">Edit</button>
+                                        <span class="text-gray-300">|</span>
+                                        <button class="text-gray-500 hover:text-gray-700 text-sm">View Map</button>
+                                    </div>
+                                </div>
+
+                                <div class="border border-gray-200 rounded-lg p-4">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <div>
+                                            <h4 class="font-medium text-gray-900">Warehouse B</h4>
+                                            <p class="text-sm text-gray-600">East coast distribution</p>
+                                        </div>
+                                    </div>
+                                    <div class="text-sm text-gray-600">
+                                        <p>456 Distribution Ave</p>
+                                        <p>New York, NY 10001</p>
+                                        <p>United States</p>
+                                    </div>
+                                    <div class="flex space-x-2 mt-3">
+                                        <button class="text-primary hover:text-primary-dark text-sm">Edit</button>
+                                        <span class="text-gray-300">|</span>
+                                        <button class="text-gray-500 hover:text-gray-700 text-sm">View Map</button>
+                                        <span class="text-gray-300">|</span>
+                                        <button class="text-primary hover:text-primary-dark text-sm">Set as Primary</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900 mb-4">Return Address</h3>
+                            <div class="border border-gray-200 rounded-lg p-4 mb-6">
+                                <div class="mb-4">
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Company Name</label>
+                                    <input type="text" value="ShipFlow Logistics" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Address Line 1</label>
+                                    <input type="text" value="123 Logistics Way" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Address Line 2</label>
+                                    <input type="text" placeholder="Suite, apartment, etc. (optional)" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary">
+                                </div>
+                                <div class="grid grid-cols-2 gap-4 mb-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">City</label>
+                                        <input type="text" value="Los Angeles" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">State</label>
+                                        <select class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary">
+                                            <option>California</option>
+                                            <option>New York</option>
+                                            <option>Texas</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">ZIP Code</label>
+                                        <input type="text" value="90210" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Country</label>
+                                        <select class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary">
+                                            <option>United States</option>
+                                            <option>Canada</option>
+                                            <option>Mexico</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="w-full bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark">Save Return Address</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Optional Settings Section -->
+            <section id="optional-settings" class="mb-8">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                    <h2 class="text-xl font-semibold text-gray-900 mb-6">Optional Settings</h2>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900 mb-4">Notification Preferences</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
+                                    <div>
+                                        <h4 class="font-medium text-gray-900">Order Confirmations</h4>
+                                        <p class="text-sm text-gray-600">Get notified when orders are confirmed</p>
+                                    </div>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" checked class="sr-only peer">
+                                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                                    </label>
+                                </div>
+                                <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
+                                    <div>
+                                        <h4 class="font-medium text-gray-900">Shipping Updates</h4>
+                                        <p class="text-sm text-gray-600">Receive updates on shipment status</p>
+                                    </div>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" checked class="sr-only peer">
+                                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                                    </label>
+                                </div>
+                                <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
+                                    <div>
+                                        <h4 class="font-medium text-gray-900">Low Stock Alerts</h4>
+                                        <p class="text-sm text-gray-600">Alert when inventory is running low</p>
+                                    </div>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" class="sr-only peer">
+                                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-medium text-gray-900 mb-4">Automation Rules</h3>
+                            <div class="space-y-4">
+                                <div class="border border-gray-200 rounded-lg p-4">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <h4 class="font-medium text-gray-900">Auto-pack Small Orders</h4>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" checked class="sr-only peer">
+                                            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                                        </label>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Automatically pack orders with 1-2 items</p>
+                                </div>
+                                <div class="border border-gray-200 rounded-lg p-4">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <h4 class="font-medium text-gray-900">Priority Shipping</h4>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" class="sr-only peer">
+                                            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                                        </label>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Automatically use express shipping for high-value orders</p>
+                                </div>
+                                <div class="border border-gray-200 rounded-lg p-4">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <h4 class="font-medium text-gray-900">Label Generation</h4>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" checked class="sr-only peer">
+                                            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                                        </label>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Auto-generate labels after packing confirmation</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Analytics Section -->
+            <section id="analytics" class="mb-8">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-semibold text-gray-900">Analytics Dashboard</h2>
+                        <div class="flex items-center space-x-3">
+                            <select class="border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                                <option>Last 30 days</option>
+                                <option>Last 7 days</option>
+                                <option>Last 3 months</option>
+                            </select>
+                            <button class="text-gray-500 hover:text-gray-700">
+                                <i class="fa-solid fa-download"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                        <div class="bg-gradient-to-r from-primary to-primary-dark rounded-lg p-6 text-white">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-blue-100 text-sm">Total Orders</p>
+                                    <p class="text-2xl font-bold">1,247</p>
+                                    <p class="text-blue-100 text-sm">+12% from last month</p>
+                                </div>
+                                <i class="fa-solid fa-box text-3xl text-blue-200"></i>
+                            </div>
+                        </div>
+                        <div class="bg-gradient-to-r from-success to-green-600 rounded-lg p-6 text-white">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-green-100 text-sm">Revenue</p>
+                                    <p class="text-2xl font-bold">$52,340</p>
+                                    <p class="text-green-100 text-sm">+8% from last month</p>
+                                </div>
+                                <i class="fa-solid fa-dollar-sign text-3xl text-green-200"></i>
+                            </div>
+                        </div>
+                        <div class="bg-gradient-to-r from-warning to-yellow-600 rounded-lg p-6 text-white">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-yellow-100 text-sm">Avg. Processing Time</p>
+                                    <p class="text-2xl font-bold">2.4h</p>
+                                    <p class="text-yellow-100 text-sm">-15% from last month</p>
+                                </div>
+                                <i class="fa-solid fa-clock text-3xl text-yellow-200"></i>
+                            </div>
+                        </div>
+                        <div class="bg-gradient-to-r from-purple-500 to-purple-700 rounded-lg p-6 text-white">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-purple-100 text-sm">Customer Satisfaction</p>
+                                    <p class="text-2xl font-bold">98.5%</p>
+                                    <p class="text-purple-100 text-sm">+2% from last month</p>
+                                </div>
+                                <i class="fa-solid fa-heart text-3xl text-purple-200"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <div class="border border-gray-200 rounded-lg p-6">
+                            <h3 class="text-lg font-medium text-gray-900 mb-4">Order Volume Trend</h3>
+                            <div id="order-chart" class="h-64"></div>
+                        </div>
+                        <div class="border border-gray-200 rounded-lg p-6">
+                            <h3 class="text-lg font-medium text-gray-900 mb-4">Shipping Destinations</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-700">California</span>
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-24 bg-gray-200 rounded-full h-2">
+                                            <div class="bg-primary h-2 rounded-full" style="width: 45%"></div>
+                                        </div>
+                                        <span class="text-sm text-gray-600">45%</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-700">New York</span>
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-24 bg-gray-200 rounded-full h-2">
+                                            <div class="bg-success h-2 rounded-full" style="width: 28%"></div>
+                                        </div>
+                                        <span class="text-sm text-gray-600">28%</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-700">Texas</span>
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-24 bg-gray-200 rounded-full h-2">
+                                            <div class="bg-warning h-2 rounded-full" style="width: 18%"></div>
+                                        </div>
+                                        <span class="text-sm text-gray-600">18%</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-700">Florida</span>
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-24 bg-gray-200 rounded-full h-2">
+                                            <div class="bg-purple-500 h-2 rounded-full" style="width: 9%"></div>
+                                        </div>
+                                        <span class="text-sm text-gray-600">9%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reports Section -->
+            <section id="reports" class="mb-8">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-semibold text-gray-900">Reports</h2>
+                        <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark">
+                            <i class="fa-solid fa-plus mr-2"></i>Generate Report
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                        <div class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
+                            <div class="flex items-center space-x-3 mb-4">
+                                <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-lg flex items-center justify-center">
+                                    <i class="fa-solid fa-chart-bar text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium text-gray-900">Sales Report</h3>
+                                    <p class="text-sm text-gray-600">Monthly sales analysis</p>
+                                </div>
+                            </div>
+                            <button class="w-full bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200">Generate</button>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
+                            <div class="flex items-center space-x-3 mb-4">
+                                <div class="w-12 h-12 bg-success bg-opacity-10 rounded-lg flex items-center justify-center">
+                                    <i class="fa-solid fa-truck text-success text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium text-gray-900">Shipping Report</h3>
+                                    <p class="text-sm text-gray-600">Delivery performance metrics</p>
+                                </div>
+                            </div>
+                            <button class="w-full bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200">Generate</button>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
+                            <div class="flex items-center space-x-3 mb-4">
+                                <div class="w-12 h-12 bg-warning bg-opacity-10 rounded-lg flex items-center justify-center">
+                                    <i class="fa-solid fa-boxes text-warning text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium text-gray-900">Inventory Report</h3>
+                                    <p class="text-sm text-gray-600">Stock levels and movements</p>
+                                </div>
+                            </div>
+                            <button class="w-full bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200">Generate</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-medium text-gray-900 mb-4">Recent Reports</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead>
+                                    <tr class="border-b border-gray-200">
+                                        <th class="text-left py-3 px-4 font-medium text-gray-700">Report Name</th>
+                                        <th class="text-left py-3 px-4 font-medium text-gray-700">Type</th>
+                                        <th class="text-left py-3 px-4 font-medium text-gray-700">Generated</th>
+                                        <th class="text-left py-3 px-4 font-medium text-gray-700">Status</th>
+                                        <th class="text-left py-3 px-4 font-medium text-gray-700">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                        <td class="py-4 px-4 font-medium text-gray-900">December Sales Summary</td>
+                                        <td class="py-4 px-4 text-gray-700">Sales Report</td>
+                                        <td class="py-4 px-4 text-gray-700">Jan 2, 2025</td>
+                                        <td class="py-4 px-4">
+                                            <span class="bg-success bg-opacity-10 text-success px-2 py-1 rounded-full text-xs font-medium">Ready</span>
+                                        </td>
+                                        <td class="py-4 px-4">
+                                            <div class="flex items-center space-x-2">
+                                                <button class="text-primary hover:text-primary-dark">
+                                                    <i class="fa-solid fa-download"></i>
+                                                </button>
+                                                <button class="text-gray-400 hover:text-gray-600">
+                                                    <i class="fa-solid fa-eye"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                        <td class="py-4 px-4 font-medium text-gray-900">Q4 Shipping Performance</td>
+                                        <td class="py-4 px-4 text-gray-700">Shipping Report</td>
+                                        <td class="py-4 px-4 text-gray-700">Dec 31, 2024</td>
+                                        <td class="py-4 px-4">
+                                            <span class="bg-warning bg-opacity-10 text-warning px-2 py-1 rounded-full text-xs font-medium">Processing</span>
+                                        </td>
+                                        <td class="py-4 px-4">
+                                            <div class="flex items-center space-x-2">
+                                                <button class="text-gray-400">
+                                                    <i class="fa-solid fa-download"></i>
+                                                </button>
+                                                <button class="text-gray-400">
+                                                    <i class="fa-solid fa-eye"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                        <td class="py-4 px-4 font-medium text-gray-900">Inventory Audit - December</td>
+                                        <td class="py-4 px-4 text-gray-700">Inventory Report</td>
+                                        <td class="py-4 px-4 text-gray-700">Dec 28, 2024</td>
+                                        <td class="py-4 px-4">
+                                            <span class="bg-success bg-opacity-10 text-success px-2 py-1 rounded-full text-xs font-medium">Ready</span>
+                                        </td>
+                                        <td class="py-4 px-4">
+                                            <div class="flex items-center space-x-2">
+                                                <button class="text-primary hover:text-primary-dark">
+                                                    <i class="fa-solid fa-download"></i>
+                                                </button>
+                                                <button class="text-gray-400 hover:text-gray-600">
+                                                    <i class="fa-solid fa-eye"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer" class="ml-64 bg-white border-t border-gray-200 p-6">
+        <div class="flex items-center justify-between">
+            <div class="text-sm text-gray-600">
+                © 2025 ShipFlow. All rights reserved.
+            </div>
+            <div class="flex items-center space-x-6 text-sm text-gray-600">
+                <a href="#" class="hover:text-gray-900">Privacy Policy</a>
+                <a href="#" class="hover:text-gray-900">Terms of Service</a>
+                <a href="#" class="hover:text-gray-900">Support</a>
+                <a href="#" class="hover:text-gray-900">Documentation</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script>
+        // Order Volume Chart
+        Highcharts.chart('order-chart', {
+            chart: {
+                type: 'line',
+                height: 250
+            },
+            title: {
+                text: null
+            },
+            credits: {
+                enabled: false
+            },
+            xAxis: {
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            },
+            yAxis: {
+                title: {
+                    text: 'Orders'
+                }
+            },
+            series: [{
+                name: 'Orders',
+                data: [120, 135, 140, 160, 180, 190, 210, 220, 200, 240, 260, 280],
+                color: '#2563EB'
+            }],
+            legend: {
+                enabled: false
+            }
+        });
+
+        // Smooth scrolling for sidebar links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
